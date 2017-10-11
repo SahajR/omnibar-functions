@@ -1,0 +1,48 @@
+{
+  "name": "ext-functions",
+  "version": "1.0.0",
+  "description": "Customized chrome omnibar functions. ",
+  "main": "background.js",
+  "scripts": {
+    "build:bin": "npm link",
+    "build:prod": "webpack"
+  },
+  "bin": {
+    "cpfn": "bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SahajR/omnibar-functions.git"
+  },
+  "keywords": [
+    "Omnibar",
+    "Chrome",
+    "extension",
+    "functions"
+  ],
+  "author": "SahajR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/SahajR1/omnibar-functions/issues"
+  },
+  "homepage": "https://gitlab.com/SahajR1/omnibar-functions#README",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "chalk": "^2.1.0",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.11.0",
+    "copy-webpack-plugin": "^4.1.0",
+    "shebang-loader": "0.0.1",
+    "shelljs": "^0.7.8",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-obfuscator": "^0.11.2"
+  },
+  "dependencies": {
+    "eslint-plugin-jsx-a11y": "^6.0.2"
+  }
+}

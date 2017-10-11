@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+    <title>Shorten URL</title>
+    <style type="text/css">
+        body {
+            margin: 10px;
+            white-space: nowrap;
+        }
+
+        h1 {
+            font-size: 15px;
+        }
+
+        #ribbon {
+            margin-bottom: 10px;
+            height: 2px;
+            width: 100%;
+            background: #F0C27B;
+            background: -webkit-linear-gradient(to right, #4B1248, #F0C27B);
+            background: linear-gradient(to right, #4B1248, #F0C27B);
+        }
+
+        #container {
+            align-items: center;
+            justify-content: space-between;
+            min-width: 200px;
+        }
+
+        .button {
+            box-sizing: border-box;
+            padding: 5px;
+            color: white;
+            transition: all .2s ease-in-out;
+            background: #F0C27B;
+            background: -webkit-linear-gradient(to right, #4B1248, #F0C27B);
+            background: linear-gradient(to right, #4B1248, #F0C27B);
+        }
+
+        .button:hover {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+        }
+
+        #shorten-result {
+            box-sizing: border-box;
+            padding: 2px;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            opacity: 0.95;
+            text-align: center;
+            padding: 10px;
+            background: #F0C27B;
+            background: -webkit-linear-gradient(to right, #4B1248, #F0C27B);
+            background: linear-gradient(to right, #4B1248, #F0C27B);
+        }
+
+        .item {
+            margin-bottom: 5px;
+        }
+
+        @-webkit-keyframes lds-ripple {
+            0% {
+                top: 90px;
+                left: 90px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                top: 15px;
+                left: 15px;
+                width: 150px;
+                height: 150px;
+                opacity: 0;
+            }
+        }
+        @keyframes lds-ripple {
+            0% {
+                top: 90px;
+                left: 90px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                top: 15px;
+                left: 15px;
+                width: 150px;
+                height: 150px;
+                opacity: 0;
+            }
+        }
+        .lds-ripple {
+            position: relative;
+        }
+        .lds-ripple div {
+            box-sizing: content-box;
+            position: absolute;
+            border-width: 10px;
+            border-style: solid;
+            opacity: 1;
+            border-radius: 50%;
+            -webkit-animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+            animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+        .lds-ripple div:nth-child(1) {
+            border-color: #ffffff;
+        }
+        .lds-ripple div:nth-child(2) {
+            border-color: #ffffff;
+            -webkit-animation-delay: -0.5s;
+            animation-delay: -0.5s;
+        }
+    </style>
+    <script src="popup.js"></script>
+</head>
+
+<body>
+    <h1>Handy functions</h1>
+    <div id="ribbon"></div>
+    <div id="overlay">
+        <div style="width:100%;height:100%" class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div id="container">
+        <div class="button item" id="shorten-button">Shorten current page's URL</div>
+        <div id="input-container" class="item"><input id="shorten-result" title="Shorten result"></div>
+        <div class="button item" id="shorten-copy">Copy URL</div>
+    </div>
+    </body>
+</html>
