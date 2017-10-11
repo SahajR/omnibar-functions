@@ -23,9 +23,9 @@
   "author": "SahajR",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/SahajR1/omnibar-functions/issues"
+    "url": "https://github.com/SahajR/omnibar-functions/issues"
   },
-  "homepage": "https://gitlab.com/SahajR1/omnibar-functions#README",
+  "homepage": "https://github.com/SahajR/omnibar-functions#README",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
