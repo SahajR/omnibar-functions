@@ -13,7 +13,7 @@ const getFunction = {
 
 chrome.omnibox.onInputEntered.addListener(
     (text) => {
-      const args = text.split('-');
+      const args = text.toLowerCase().split('-');
       try {
         const type = args[0];
         const func = getFunction[type];
