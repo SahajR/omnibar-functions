@@ -15,7 +15,7 @@ const spFunction = (args) => {
 
     if(args[0] === 'r') {
         const season = Number(args[1]);
-        url = `http://southpark.cc.com/full-episodes/${getRandomEpisode(isNaN(season) ? null : season)}`;
+        url = `http://southpark.cc.com/full-episodes/${getRandomEpisode(isNaN(season) ? undefined : prependZero(season))}`;
     } else {
         let [season, episode] = args.map(Number);
         if(isNaN(season) || isNaN(episode)) {

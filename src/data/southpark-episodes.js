@@ -6,11 +6,11 @@ const unavailableEpisodes = ['s05e04', 's14e05', 's14e06', 's21e04', 's21e05', '
 
 const prependZero = (n) => (n < 10 ? `0${n}` : n);
 
-const getRandomEpisode = (season) => {
-    season = season || prependZero(Math.floor(Math.random()*seasonCount)+1);
-    let episode = `s${season}e${prependZero(Math.floor(Math.random()*episodesPerSeason[season]))}`;
+const getRandomEpisode = (season = prependZero(Math.floor(Math.random()*seasonCount)+1)) => {
+    const seasonNumber = Number(season);
+    let episode = `s${season}e${prependZero(1+Math.floor(Math.random()*episodesPerSeason[seasonNumber]))}`;
     while(unavailableEpisodes.includes(episode)) {
-        episode = `s${season}e${prependZero(Math.floor(Math.random()*episodesPerSeason[season]))}`;
+        episode = `s${season}e${prependZero(1+Math.floor(Math.random()*episodesPerSeason[seasonNumber]))}`;
     }
     return episode;
 };

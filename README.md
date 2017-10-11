@@ -9,6 +9,7 @@ Type <kbd>F</kbd> in the omnibar and then type any of the following keywords for
 | ------ | ------ |
 | gm-{N} | Open inbox for the **N**th profile |
 | sp-r | Plays a random South park episode |
+| sp-r-{season} | Plays a random South park episode from the specified season |
 | sp-{season} | Lists all South park episodes in the specified season |
 | sp-{season}-{episode} | Plays the specified South park episode |
 | tr-{search-term} | Lists search results on torrentz2.eu |
