@@ -1,0 +1,22 @@
+{
+  "name": "Custom omnibar functions",
+  "description" : "Helper functions for day-to-day use",
+  "version": "1.0",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": "icon.png"
+  },
+  "omnibox": { "keyword" : "f" },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "activeTab",
+    "tabs",
+    "<all_urls>"
+  ],
+  "manifest_version": 4
+}
