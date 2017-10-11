@@ -1,6 +1,5 @@
 import {getRandomEpisode} from "../../data/southpark-episodes";
-
-const prependZero = (n) => (n < 10 ? `0${n}` : n);
+import prependZero from "../../utils/PrependZero";
 
 // eg: f sp-2 => Loads South park season 2 list
 // f sp-2-4 => Plays episode 4 of season 2
