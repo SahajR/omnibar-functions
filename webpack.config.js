@@ -1,5 +1,6 @@
 const JavaScriptObfuscator = require('webpack-obfuscator');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Crx = require("crx-webpack-plugin");
 
 module.exports = {
     context: `${__dirname}`,
@@ -33,6 +34,12 @@ module.exports = {
         }, []),
         new CopyWebpackPlugin([
             { from: './src/index.html', to: './dist/index.html' },
-        ])
+        ]),
+        new Crx({
+            keyFile: './dist.pem',
+            contentPath: './dist',
+            outputPath: './crx',
+            name: 'omnibar-functions'
+        })
     ]
 };
