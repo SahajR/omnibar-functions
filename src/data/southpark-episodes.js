@@ -1,4 +1,4 @@
-import prependZero from "../utils/PrependZero";
+import prependZero from "../utils/prepend-zero";
 
 const seasonCount = 21;
 

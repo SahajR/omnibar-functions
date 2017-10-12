@@ -1,4 +1,4 @@
-import cleanURL from "../utils/CleanURL";
+import cleanURL from "../utils/clean-url";
 
 const getCurrentTabUrl = (callback) => {
     const queryInfo = {

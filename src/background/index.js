@@ -2,7 +2,7 @@ import akFn from './functions/akkarakazhchakal.js';
 import gmailFn from './functions/gmail.js';
 import torrentSearchFn from './functions/torrent-search.js';
 import spFunction from './functions/south-park.js';
-import cleanURL from "../utils/CleanURL";
+import cleanURL from "../utils/clean-url";
 
 const getFunction = {
     'sp': spFunction,
