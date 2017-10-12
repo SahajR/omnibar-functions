@@ -5,7 +5,8 @@
   "main": "background.js",
   "scripts": {
     "build:bin": "npm link",
-    "build:prod": "webpack"
+    "build:prod": "webpack",
+    "pack": "node node_modules/crx/bin/crx.js pack dist -p dist.pem -o omnibar-functions.crx"
   },
   "bin": {
     "cpfn": "bin/index.js"
@@ -36,6 +37,7 @@
     "co-prompt": "^1.0.0",
     "commander": "^2.11.0",
     "copy-webpack-plugin": "^4.1.0",
+    "crx": "^3.2.1",
     "shebang-loader": "0.0.1",
     "shelljs": "^0.7.8",
     "webpack": "^3.6.0",
