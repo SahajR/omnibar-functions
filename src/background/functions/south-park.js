@@ -8,11 +8,9 @@ const spFunction = (args) => {
 
     let url = '';
 
-    if(!args) {
+    if(!args || args.length === 0) {
         url = `http://southpark.cc.com/full-episodes/${getRandomEpisode()}`;
-    }
-
-    if(args[0] === 'r') {
+    } else if(args[0] === 'r') {
         const season = Number(args[1]);
         url = `http://southpark.cc.com/full-episodes/${getRandomEpisode(isNaN(season) ? undefined : prependZero(season))}`;
     } else {
