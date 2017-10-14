@@ -6,11 +6,11 @@ import prependZero from "../../utils/prepend-zero";
 // f sp-r => Plays a random available episode
 const spFunction = (args) => {
 
-    if(!args) {
-        throw 'Bad request!';
-    }
-
     let url = '';
+
+    if(!args) {
+        url = `http://southpark.cc.com/full-episodes/${getRandomEpisode()}`;
+    }
 
     if(args[0] === 'r') {
         const season = Number(args[1]);
