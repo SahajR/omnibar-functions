@@ -12,11 +12,14 @@ const getCurrentTab = (callback) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+
     const overlay = document.getElementById('overlay');
     const shortenButton = document.getElementById('shorten-button');
     const shortenResult = document.getElementById('shorten-result');
     const shortenCopy = document.getElementById('shorten-copy');
     const generateQR = document.getElementById('generate-qr');
+    const goToExtensions = document.getElementById("shortcut-extensions");
+
     shortenResult.style.display = 'none';
     shortenCopy.style.display = 'none';
     overlay.style.display = 'none';
@@ -66,4 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
             window.alert(err);
         }
     });
+
+    goToExtensions.addEventListener('click', () => {
+        getCurrentTab((tab) => {
+            chrome.tabs.update(tab.id, {url: "chrome://extensions"});
+        });
+    });
+
 });
