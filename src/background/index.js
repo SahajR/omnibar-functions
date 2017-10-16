@@ -42,7 +42,7 @@ chrome.contextMenus.create({
     onclick: function(data) {
         try {
             chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                chrome.tabs.sendMessage(tabs[0].id, {text: data.selectionText}, (respose)=>{});
+                chrome.tabs.sendMessage(tabs[0].id, {text: data.selectionText});
             });
         } catch (err) {
             window.alert(err);

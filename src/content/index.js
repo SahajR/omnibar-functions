@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener((request) => {
 
 const generateQR = (value) => {
 
-    if(typeof string !== "string") {
+    if(typeof value !== "string") {
         throw "Invalid text";
     }
 
@@ -17,6 +17,13 @@ const generateQR = (value) => {
 
     const overlay = qrOverlay(qr.toDataURL());
     document.body.appendChild(overlay);
+    overlay.scrollIntoView();
 
+    const qrCodes = document.getElementsByClassName("sahajr-qr-popup");
+    for(const qrCode of qrCodes) {
+        qrCode.addEventListener('click', () => {
+            qrCode.parentNode.removeChild(qrCode);
+        });
+    }
 };
 
