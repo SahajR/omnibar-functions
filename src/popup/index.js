@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             getCurrentTab((tab) => {
                 chrome.tabs.sendMessage(tab.id, {text: tab.url});
+                window.close();
             });
         } catch (err) {
             window.alert(err);
