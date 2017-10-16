@@ -7,6 +7,7 @@ module.exports = {
 
     entry: {
         'dist/popup.js': './src/popup/index.js',
+        'dist/content.js': './src/content/index.js',
         'dist/background.js': './src/background/index.js',
     },
 

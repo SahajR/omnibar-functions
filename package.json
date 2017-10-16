@@ -45,6 +45,7 @@
     "webpack-obfuscator": "^0.11.2"
   },
   "dependencies": {
-    "eslint-plugin-jsx-a11y": "^6.0.2"
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "qrious": "^4.0.2"
   }
 }

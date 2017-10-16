@@ -1,17 +1,13 @@
 import cleanURL from "../utils/clean-url";
 
-const getCurrentTabUrl = (callback) => {
+const getCurrentTab = (callback) => {
     const queryInfo = {
       active: true,
       currentWindow: true
     };
   
     chrome.tabs.query(queryInfo, (tabs) => {
-      const tab = tabs[0];
-      const url = tab.url;
-      console.assert(typeof url === 'string', 'tab.url should be a string');
-  
-      callback(url);
+      callback(tabs[0]);
     });
 };
 
@@ -20,14 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const shortenButton = document.getElementById('shorten-button');
     const shortenResult = document.getElementById('shorten-result');
     const shortenCopy = document.getElementById('shorten-copy');
+    const generateQR = document.getElementById('generate-qr');
     shortenResult.style.display = 'none';
     shortenCopy.style.display = 'none';
     overlay.style.display = 'none';
 
     shortenButton.addEventListener('click', () => {
-        getCurrentTabUrl((to) => {
+        getCurrentTab((tab) => {
             try {
-                const url = `https://sahajr.xyz/shorten/?url=${cleanURL(to)}`;
+                const url = `https://sahajr.xyz/shorten/?url=${cleanURL(tab.url)}`;
                 const request = new XMLHttpRequest();
                 overlay.style.display = 'block';
                 request.open("GET", url, true);
@@ -58,5 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
        } catch (err) {
            window.alert(err);
        }
+    });
+
+    generateQR.addEventListener('click', () => {
+        try {
+            getCurrentTab((tab) => {
+                chrome.tabs.sendMessage(tab.id, {text: tab.url});
+            });
+        } catch (err) {
+            window.alert(err);
+        }
     });
 });

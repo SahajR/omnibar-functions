@@ -33,5 +33,19 @@ chrome.webRequest.onBeforeRequest.addListener((request) => {
         return {redirectUrl};
     },
     {urls: ["<all_urls>"]},
-    ["blocking", "responseHeaders"]
+    ["requestBody"]
 );
+
+chrome.contextMenus.create({
+    title: "Generate QR code for this",
+    contexts:["selection"],
+    onclick: function(data) {
+        try {
+            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                chrome.tabs.sendMessage(tabs[0].id, {text: data.selectionText}, (respose)=>{});
+            });
+        } catch (err) {
+            window.alert(err);
+        }
+    }
+});
