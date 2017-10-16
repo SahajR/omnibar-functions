@@ -15,6 +15,13 @@ const generateQR = (value) => {
         value
     });
 
+    const existing = document.getElementsByClassName("sahajr-qr-popup");
+    if(existing) {
+        for(const qrCode of existing) {
+            qrCode.parentNode.removeChild(qrCode);
+        }
+    }
+
     const overlay = qrOverlay(qr.toDataURL());
     document.body.appendChild(overlay);
     overlay.scrollIntoView();
