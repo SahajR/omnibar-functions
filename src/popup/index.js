@@ -11,6 +11,19 @@ const getCurrentTab = (callback) => {
     });
 };
 
+const shortenURL = (_url, done) => {
+    const url = `https://sahajr.xyz/shorten/?url=${cleanURL(_url)}`;
+    const request = new XMLHttpRequest();
+    request.open("GET", url, true);
+    request.onreadystatechange = () => {
+        if (request.readyState === 4) {
+            const response = JSON.parse(request.responseText);
+            done(response.shortURL);
+        }
+    };
+    request.send();
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const overlay = document.getElementById('overlay');
@@ -19,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const shortenCopy = document.getElementById('shorten-copy');
     const generateQR = document.getElementById('generate-qr');
     const goToExtensions = document.getElementById("shortcut-extensions");
+    const shortenAndQR = document.getElementById("generate-qr-short-url");
 
     shortenResult.style.display = 'none';
     shortenCopy.style.display = 'none';
@@ -27,22 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
     shortenButton.addEventListener('click', () => {
         getCurrentTab((tab) => {
             try {
-                const url = `https://sahajr.xyz/shorten/?url=${cleanURL(tab.url)}`;
-                const request = new XMLHttpRequest();
                 overlay.style.display = 'block';
-                request.open("GET", url, true);
-                request.onreadystatechange = () => {
-                    if (request.readyState === 4) {
-                        const response = JSON.parse(request.responseText);
-                        shortenResult.style.display = 'block';
-                        shortenResult.focus();
-                        shortenResult.value = response.shortURL;
-                        shortenResult.select();
-                        overlay.style.display = 'none';
-                        shortenCopy.style.display = 'block';
-                    }
-                };
-                request.send();
+                shortenURL(tab.url, (shortURL) => {
+                    shortenResult.style.display = 'block';
+                    shortenResult.focus();
+                    shortenResult.value = shortURL;
+                    shortenResult.select();
+                    overlay.style.display = 'none';
+                    shortenCopy.style.display = 'block';
+                });
             } catch (err) {
                 window.alert(err);
             }
@@ -73,6 +80,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     goToExtensions.addEventListener('click', () => {
         chrome.tabs.create({url: "chrome://extensions"});
+    });
+
+    shortenAndQR.addEventListener('click', () => {
+        getCurrentTab((tab) => {
+            try {
+                overlay.style.display = 'block';
+                shortenURL(tab.url, (shortURL) => {
+                    overlay.style.display = 'none';
+                    chrome.tabs.sendMessage(tab.id, {text: shortURL});
+                    window.close();
+                });
+            } catch (err) {
+                window.alert(err);
+            }
+        });
     });
 
 });
