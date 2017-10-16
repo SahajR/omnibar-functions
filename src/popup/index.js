@@ -71,9 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     goToExtensions.addEventListener('click', () => {
-        getCurrentTab((tab) => {
-            chrome.tabs.update(tab.id, {url: "chrome://extensions"});
-        });
+        chrome.tabs.create({url: "chrome://extensions"});
     });
 
 });
