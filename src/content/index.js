@@ -1,5 +1,5 @@
 import QR from "qrious";
-import{qrOverlay} from "./elements";
+import {qrOverlay} from "./elements";
 
 chrome.runtime.onMessage.addListener((request) => {
     generateQR(request.text);

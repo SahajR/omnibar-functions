@@ -35,13 +35,13 @@
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
     "commander": "^2.11.0",
-    "copy-webpack-plugin": "^4.1.0",
+    "copy-webpack-plugin": "^4.1.1",
     "crx": "^3.2.1",
     "crx-webpack-plugin": "^0.1.5",
     "shebang-loader": "0.0.1",
     "shelljs": "^0.7.8",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.2",
     "webpack-obfuscator": "^0.11.2"
   },
   "dependencies": {
