@@ -17,6 +17,7 @@ const qrOverlay = (imageData) => {
     image.style.width = "400px";
     image.style.height = "400px";
     image.setAttribute("src", imageData);
+    image.style.border = "5px solid white";
 
     parent.appendChild(image);
 
