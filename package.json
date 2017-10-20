@@ -1,5 +1,5 @@
 {
-  "name": "ext-functions",
+  "name": "Chromeopathy",
   "version": "1.0.0",
   "description": "Customized chrome omnibar functions. ",
   "main": "background.js",

@@ -1,7 +1,7 @@
 {
-  "name": "Custom omnibar functions",
-  "description" : "Helper functions for day-to-day use",
-  "version": "1.0",
+  "name": "Chromeopathy",
+  "description" : "Chrome extension with omnibar and content functions",
+  "version": "1.1.2",
   "background": {
     "scripts": ["background.js"],
     "persistent": true
@@ -30,5 +30,5 @@
     "48": "icons/icon.48.png",
     "128": "icons/icon.128.png"
   },
-  "manifest_version": 4
+  "manifest_version": 5
 }

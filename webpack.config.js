@@ -40,7 +40,7 @@ module.exports = {
             keyFile: './dist.pem',
             contentPath: './dist',
             outputPath: './crx',
-            name: 'omnibar-functions'
+            name: 'Chromeopathy'
         })
     ]
 };
