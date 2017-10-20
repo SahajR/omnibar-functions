@@ -6,7 +6,7 @@ Chrome extension that includes custom omnibar and content functions to make my l
 ## Omnibar functions
 Type <kbd>f</kbd> in the omnibar and then type any of the following keywords for the desired result.
 
-> **Example:** The following input plays the 4th episode pf South Park's 10th season, buddy!
+> **Example:** The following input plays the 4th episode of South Park's 10th season, buddy!
 
 ![alt text](assets/omnibar-sp-example.png "Omnibar example")
 
