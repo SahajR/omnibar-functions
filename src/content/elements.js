@@ -1,23 +1,27 @@
 const qrOverlay = (imageData) => {
 
     const parent = document.createElement("div");
-    parent.style.zIndex = 9999;
-    parent.style.width = "100%";
-    parent.style.height = "100%";
-    parent.style.background = "rgba(0,0,0,0.8)";
-    parent.style.position = "absolute";
-    parent.style.top = 0;
-    parent.style.left = 0;
-    parent.style.alignItems = "center";
-    parent.style.justifyContent = "center";
-    parent.style.display = "flex";
+    Object.assign(parent.style, {
+        zIndex: 9999,
+        width: "100%",
+        height: "100%",
+        background: "rgba(0,0,0,0.8)",
+        position: "absolute",
+        top: 0,
+        left:  0,
+        alignItems: "center",
+        justifyContent: "center",
+        display: "flex"
+    });
     parent.setAttribute("class", "sahajr-qr-popup");
 
     const image = document.createElement("img");
-    image.style.width = "400px";
-    image.style.height = "400px";
+    Object.assign(image.style, {
+        width: "400px",
+        height: "400px",
+        border: "5px solid white"
+    });
     image.setAttribute("src", imageData);
-    image.style.border = "5px solid white";
 
     parent.appendChild(image);
 
