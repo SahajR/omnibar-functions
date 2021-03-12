@@ -1,5 +1,7 @@
+![Experiment](https://img.shields.io/badge/Web-Experiment-green)
 # Chromeopathy
 Chrome extension that includes custom omnibar and content functions to make my life with chrome easier.
+I made this extension to learn how extensions are created for browsers
 
 ![alt text](assets/chromeopathy-banner.png "Chromeopathy banner")
 
